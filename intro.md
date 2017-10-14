@@ -68,7 +68,7 @@ Looking at the table above, we can observe that when we already have the labels 
 
 ### Unsupervised Learning
 
-With Unsupervised Learning, things are a little different. Here, we are more concerned wiith making sense of the data set and then categorizing the data into smaller clusters and our training data has only unmlabeled features. 
+With Unsupervised Learning, things are a little different. Here, we are more concerned wiith making sense of the data set and then categorizing the data into smaller clusters and our training data has only unlabeled features. 
 So an example dataset we could have is:
 
 <table>
