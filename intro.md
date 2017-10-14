@@ -111,7 +111,7 @@ Notice how in the table above, the label <strong>isCar</strong> is left out here
 
 ## Examples of Machine Learning Models
 
-We have alot of machine learning models that have been developed over the years : linearn regression, logisitic regressiom, neural networks, support vector machines, KMeans etc.
+We have alot of machine learning models that have been developed over the years : linear regression, logisitic regression, neural networks, support vector machines, KMeans etc.
 
 In this starter pack we are going to explore these machine learning models in-depth one after the other 😇
 
