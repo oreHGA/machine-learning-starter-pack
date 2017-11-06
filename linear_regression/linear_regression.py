@@ -16,9 +16,10 @@ def getData(location="../data/carprices.csv"):
     features = dataset.iloc[:, 1:].values
     return features, labels
 
+
 def preprocess_data(X,Y):
     # check for missing values
-    # we need to handle the categorical data by encoding them 
+    # we need to handle the categorical data by encoding them
     le = sklearn.preprocessing.LabelEncoder()
     le.fit(['Diesel','Petrol','CNG'])
     X[: , 2] = le.transform(X[:,2]) # encoding the fuel type
@@ -30,6 +31,7 @@ def preprocess_data(X,Y):
     test_x = X[1000:, ]   # we do not touch these variables until the we get the best model
     test_y = [ x for x in Y[1000:]]   # we do not touch these variables until the we get the best model
     return train_x, train_y, valid_x, valid_y, test_x, test_y
+
 
 def linear_regression(train_x, train_y, valid_x, valid_y):
     # Create the linear model
@@ -44,8 +46,8 @@ def linear_regression(train_x, train_y, valid_x, valid_y):
     print("Mean squared error: %.2f"
         % mean_squared_error(valid_y, predict_price))
     # Explained variance score: 1 is perfect prediction
-    print('Variance score: %.2f' % r2_score(valid_y, predict_price)) 
-        
+    print('Variance score: %.2f' % r2_score(valid_y, predict_price))
+
     # Visualize results of test
     true_price = plt.scatter(valid_x[:,3], valid_y,  marker='^', label='True price')
     predicted = plt.scatter(valid_x[:,3], predict_price, marker='*', label='Predicted Price')
@@ -57,13 +59,21 @@ def linear_regression(train_x, train_y, valid_x, valid_y):
     plt.title('A scatter plot of the Predicted Results and Features')
     plt.savefig("./images/Visualized_features.png")
     return model
-    
+
+
 def test_model(model, test_x, test_y):
     # pick a random sample from our test_x
     random_value = random.randint(1,435)
     prediction = model.predict(test_x)
-    
+
     print "Chosen sample has these features : \n", test_x[random_value]
+    print "Age :\t", test_x[random_value, 0]
+    print "\nMileage(km) :\t", test_x[random_value, 1]
+    print "\nHorsePower :\t", test_x[random_value, 3]
+    print "\nAutomatic :\t", test_x[random_value, 5]
+    print "\nNumber of Doors :\t", test_x[random_value, 7]
+    print "\nWeight :\t", test_x[random_value, 8]
+
     print "\nFor this sample, our model predicted the car to cost $", round(prediction[random_value],2)
     print "\nAnd the car truly cost $", test_y[random_value]
 
